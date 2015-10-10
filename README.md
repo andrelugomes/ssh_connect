@@ -1,21 +1,28 @@
-ssh_connect is a console bookmark tool to connect quickly to your most
-used ssh servers.
+# SSH Connect Test
 
-# Usage
+## Why?
 
-    git clone git://github.com/alx/ssh_connect.git
-    cp ssh_connect/ssh_connect ~/bin
-    cp ssh_connect/servers.yaml.example ~/.ssh_connect
-    ssh_connect
+Connection test for a lot of server with ssh.
 
-Then select the server you want to connect to.
+Today there are:
+ - 23 productions server
+ - 18 staging servers
+ - 12 qa servers
+ - 0 development servers
 
-# Faster
+# First
 
-    ssh_connect 1 # connect to the first server on the list
+```bash
+    git clone git@github.com:andrelugomes/ssh_connect.git
+    cp .env.sample .env
+    cp servers.yaml.sample servers.yaml
+ ```
+ Set up your USER and PASS in .env
+ 
+ Set up your Servers list in servers.yaml
+ 
+# Run
 
-# Tips
-
-Add an alias to your bash:
-
-    alias s='ssh_connect'
+```bash
+ruby ssh_connect.rb
+```

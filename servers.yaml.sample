@@ -1,12 +1,14 @@
 ---
+# if no port defined, it'll connect on port 22
+# if no user defined, it'll use .env
+# if no pass defined, it'll use .env
 servers:
   - alias:  easy to remember server name
-    ip:     domainname-or-ip.tld
-    login:  user_login
+    host:   domainname-or-ip.tld
     port:   2222
 
   - alias:  another server
-    ip:     88.191.126.74
-    login:  another_login
-    # if no port defined, it'll connect on port 22
+    host:   88.191.126.74
+    
+    
 
