@@ -25,5 +25,5 @@ Today there are:
 # Run
 
 ```bash
-ruby ssh_connect.rb
+bundle exec ruby ssh_connect.rb
 ```

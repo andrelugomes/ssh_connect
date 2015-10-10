@@ -21,17 +21,22 @@ servers.each do |server|
 
   puts "Connecting to #{server["alias"]} with #{user}@#{server["host"]} port #{server["port"] || 22}"
   begin
-    Net::SSH.start(server["host"], user,:password => pass, :timeout => 5) do |ssh|
-        ssh.exec!("exit")
-    end
+    # Net::SSH.start(server["host"], user,:password => pass, :timeout => 5) do |ssh|
+    #     ssh.exec!("exit")
+    # end
+    session = Net::SSH.start(server["host"], user,:password => pass, :timeout => 5)
+    session.close
+
   rescue SocketError
     puts " Name or service not known (SocketError)"
   rescue Net::SSH::ConnectionTimeout
-    puts "  Connection timeout"
+    puts " Connection timeout"
   rescue Net::SSH::AuthenticationFailed
-    puts "  Authentication failure"
+    puts " Authentication failure"
   rescue Net::SSH::KnownHosts
-    puts "  Name or service not known"
+    puts " Name or service not known"
+  rescue Net::SSH::Authentication::DisallowedMethod
+    puts " Permission Denied"
   end
-  #system "sshpass -p '#{server["pass"]}' ssh #{server["login"]}@#{server["ip"]} -p #{server["port"] || 22} exit"
+  #system "sshpass -p '#{pass}' ssh #{user}@#{server["host"]} -p #{server["port"] || 22} exit"
 end

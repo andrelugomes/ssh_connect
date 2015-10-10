@@ -1,12 +1,21 @@
+GIT
+  remote: git@github.com:andrelugomes/net-ssh.git
+  revision: e0d238e0e87ebed04d8bd3928ac49eb056eb2515
+  tag: v3.1.0
+  specs:
+    net-ssh (3.1.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
     dotenv (2.0.2)
-    net-ssh (3.0.1)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   dotenv
-  net-ssh
+  net-ssh!
+
+BUNDLED WITH
+   1.10.5
