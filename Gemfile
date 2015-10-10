@@ -1,4 +1,6 @@
 source "https://rubygems.org"
 
-gem 'dotenv'
-gem 'net-ssh'
+ruby "2.2.2"
+
+gem "dotenv"
+gem "net-ssh"
