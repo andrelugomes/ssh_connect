@@ -16,6 +16,7 @@ Today there are:
     git clone git@github.com:andrelugomes/ssh_connect.git
     cp .env.sample .env
     cp servers.yaml.sample servers.yaml
+    bundle install 
  ```
  Set up your USER and PASS in .env
  
