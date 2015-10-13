@@ -3,12 +3,12 @@
 # if no user defined, it'll use .env
 # if no pass defined, it'll use .env
 servers:
-  - alias:  easy to remember server name
-    host:   domainname-or-ip.tld
-    port:   2222
+- alias:  easy to remember server name
+	host:   domainname-or-ip.tld
+	port:   2222
 
-  - alias:  another server
-    host:   88.191.126.74
-    
+- alias:  another server
+	host:   88.191.126.74
+
     
 
