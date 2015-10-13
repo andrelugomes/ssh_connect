@@ -24,8 +24,10 @@ servers.each do |server|
     # Net::SSH.start(server["host"], user,:password => pass, :timeout => 5) do |ssh|
     #     ssh.exec!("exit")
     # end
-    session = Net::SSH.start(server["host"], user,:password => pass, :timeout => 5)
-    session.close
+    Net::SSH.start(server["host"], user,:password => pass, :timeout => 5) do |session|
+      puts " Ok"
+      session.close
+    end
 
   rescue SocketError
     puts " Name or service not known (SocketError)"
@@ -37,6 +39,8 @@ servers.each do |server|
     puts " Name or service not known"
   rescue Net::SSH::Authentication::DisallowedMethod
     puts " Permission Denied"
+  rescue Errno::ECONNREFUSED
+    puts " Connection refused"
   end
   #system "sshpass -p '#{pass}' ssh #{user}@#{server["host"]} -p #{server["port"] || 22} exit"
 end
