@@ -3,7 +3,7 @@ require "yaml"
 require "dotenv"
 require "net/ssh"
 
-server_config = File.expand_path("servers.yaml")
+server_config = File.expand_path("ssh_servers.yaml")
 
 Dotenv.load
 
@@ -21,9 +21,6 @@ servers.each do |server|
 
   puts "Connecting to #{server["alias"]} with #{user}@#{server["host"]} port #{server["port"] || 22}"
   begin
-    # Net::SSH.start(server["host"], user,:password => pass, :timeout => 5) do |ssh|
-    #     ssh.exec!("exit")
-    # end
     Net::SSH.start(server["host"], user,:password => pass, :timeout => 5) do |session|
       puts " Ok"
       session.close
@@ -42,5 +39,4 @@ servers.each do |server|
   rescue Errno::ECONNREFUSED
     puts " Connection refused"
   end
-  #system "sshpass -p '#{pass}' ssh #{user}@#{server["host"]} -p #{server["port"] || 22} exit"
 end

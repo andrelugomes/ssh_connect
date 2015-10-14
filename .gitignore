@@ -1,2 +1,3 @@
-servers.yaml
+http_servers.yaml
+ssh_servers.yaml
 .env
