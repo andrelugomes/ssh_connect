@@ -31,5 +31,7 @@ servers_yaml["servers"].each do |server|
     puts " Connection read_timeout"
   rescue Net::OpenTimeout
     puts " Connection open_timeout"
+  rescue Net::HTTPBadResponse
+    puts " HTTPBadResponse"
   end
 end
